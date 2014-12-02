@@ -43,7 +43,7 @@
                 INNER JOIN category_keyword ck ON ck.category_id = pc.category_id
                 INNER JOIN product_keyword pk ON pk.product_id = pc.product_id AND pk.keyword_id = ck.keyword_id
                 WHERE (pc.type = '.[!!!]_Product_Category::TYPE_WEAK.')';
-        if ($merchant &amp;&amp; $merchant->getId()){
+        if ($merchant && $merchant->getId()){
             $sql .=  ' AND (pc.merchant_id = '.$merchant->getId().')';
         }
         if ($product_id){
