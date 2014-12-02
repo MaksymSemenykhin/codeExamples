@@ -1,11 +1,12 @@
-    /*
+   <?php
+   /*
      * delete links product-to-category which have
      * category to keyword links that don't exist
      * product to keyword links that don't exist
      * keywords that don't exist
      * */
     public static function removeProductCategoryLinks($merchant = null, $product_id = null){
-        if(!$merchant &amp;&amp; Zend_Registry::isRegistered('merchant')){
+        if(!$merchant && Zend_Registry::isRegistered('merchant')){
             $merchant = Zend_Registry::get('merchant');
         }
         $db = Zend_Registry::isRegistered('db')?Zend_Registry::get('db'):null;
@@ -25,8 +26,8 @@
         $sql .= ' LEFT JOIN '. self::TABLE_PRODUCT_KEYWORD . ' pk ON pk.product_id  = pc.product_id AND pk.keyword_id  = ck.keyword_id ';
         //$sql .= ' LEFT JOIN '. self::TABLE_KEYWORD . ' k ON (k.id = pk.keyword_id OR k.id = ck.keyword_id)';
         $sql .= ' WHERE (pc.type = '.[!!!]_Product_Category::TYPE_WEAK.') AND (ck.id IS NULL OR pk.id IS NULL)';
-        if ($merchant &amp;&amp; $merchant-&gt;getId()){
-            $sql .=  'AND (pc.merchant_id = '.$merchant-&gt;getId().')';
+        if ($merchant && $merchant->getId()){
+            $sql .=  'AND (pc.merchant_id = '.$merchant->getId().')';
         }
         if ($product_id){
             $sql .=  'AND (pc.product_id = '.$product_id.')';
