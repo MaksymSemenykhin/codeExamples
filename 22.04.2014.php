@@ -51,6 +51,6 @@
             }
         }
         //save list with all changes
-        $product_keyword_list->;save();
+        $product_keyword_list->save();
         return true;
     }
