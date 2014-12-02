@@ -41,7 +41,7 @@
             //try to restore link
             $product_keyword_list->undelete($existing_product_keyword_id);
             //add new if link doesn't exist
-            if (!$existing_product_keyword_id || !$product_keyword_list->($existing_product_keyword_id)){
+            if (!$existing_product_keyword_id || !$product_keyword_list->get($existing_product_keyword_id)){
                 $new_product_keyword = new [!!!]_Product_Keyword();
                 $new_product_keyword->setData(array(
                     'product_id'   => $product_id, // product_id value
