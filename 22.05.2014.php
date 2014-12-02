@@ -24,7 +24,6 @@
         $sql  =' SELECT DISTINCT pc.id as `id` FROM product_category pc';
         $sql .= ' LEFT JOIN '.self::TABLE_CATEGORY_KEYWORD . ' ck ON ck.category_id = pc.category_id';
         $sql .= ' LEFT JOIN '. self::TABLE_PRODUCT_KEYWORD . ' pk ON pk.product_id  = pc.product_id AND pk.keyword_id  = ck.keyword_id ';
-        //$sql .= ' LEFT JOIN '. self::TABLE_KEYWORD . ' k ON (k.id = pk.keyword_id OR k.id = ck.keyword_id)';
         $sql .= ' WHERE (pc.type = '.[!!!]_Product_Category::TYPE_WEAK.') AND (ck.id IS NULL OR pk.id IS NULL)';
         if ($merchant && $merchant->getId()){
             $sql .=  'AND (pc.merchant_id = '.$merchant->getId().')';
@@ -56,7 +55,7 @@
         $product_category_do_delete = array_diff_assoc($product_category_all, $product_category_need_to_save);
 
         if(empty($product_category_do_delete))return true;
-        foreach($product_category_do_delete as $key =&gt; $value){
+        foreach($product_category_do_delete as $key => $value){
             $product_category_do_delete[$key]=$key;
         }
         $sql = ' DELETE FROM product_category  WHERE id IN('.implode(',',$product_category_do_delete).')';
