@@ -1,4 +1,4 @@
-<php
+<?php
     /*
     * Save product-to-keyword links
     * @param: array $data - POST data, list of keywords
