@@ -17,7 +17,7 @@
         //$keyword_list = Util_Keyword::synchronizeKeywords(!empty($data)?$data:array(),$merchant,false);
         $keyword_list = new [!!!]_KeywordList($merchant->id);
         $keyword_list->load(false);
-        $existing_keyword_list_sorted = self::arrayKey($keyword_list->;toArray(),'value');
+        $existing_keyword_list_sorted = self::arrayKey($keyword_list->toArray(),'value');
  
         //get all existing product-keywords links
         $product_keyword_list = new [!!!]_Product_KeywordList($product_id);
